@@ -40,25 +40,65 @@ body {
 .logo {
   height: 35px;
 }
+.logo:hover {
+  animation-name: moveInFromRight;
+  animation-duration: 1s;
+}
 .heading-primary {
   color: fff;
   text-transform: uppercase;
+  backface-visibility: hidden;
 }
 .heading-primary-main {
   display: block;
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+  animation-name: moveInFromLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /* animation-delay: 3s;
+  animation-iteration-count: 3; */
 }
 .heading-primary-sub {
   display: block;
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.5px;
+  animation-name: moveInFromRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 }
 .text-box {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+@keyframes moveInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translate(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes moveInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+    /* transform: translateX(100px) rotate(180deg); */
+  }
+  80% {
+    transform: translate(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
