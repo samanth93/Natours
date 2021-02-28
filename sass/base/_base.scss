@@ -1,0 +1,18 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* force inherit from html*/
+  box-sizing: inherit;
+}
+html {
+  /* give it in %  as default browser is 16px so 10px(%) of 16px*/
+  /* font-size: 10px; */
+  /* now we use rems every where to make it responsive */
+  //   This is a global definition for what 1 rem is, so it is not actually a typography
+  font-size: 62.5%;
+}
+body {
+  box-sizing: border-box;
+}
