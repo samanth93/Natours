@@ -1,22 +1,37 @@
 .row {
   //   max-width: 1140px;
   max-width: $grid-width;
-  background-color: #eee;
+  @include respond(tab-port) {
+    max-width: $grid-width-tab;
+    padding: 0 3rem;
+  }
+  //   background-color: #eee;
   //   for setting block elements inside block elements in center
   margin: 0 auto;
 
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
+
+    @include respond(tab-port) {
+      margin-bottom: $gutter-vertical-small;
+    }
   }
 
   @include clearFix;
 
   [class^="col-"] {
     float: left;
-    background-color: orangered;
+    // background-color: orangered;
 
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
+      @include respond(tab-port) {
+        margin-right: 0;
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+    @include respond(tab-port) {
+      width: 100% !important;
     }
   }
 

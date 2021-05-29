@@ -1,0 +1,58 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+  background-color: $color-white;
+  border-radius: 3px;
+  padding: 5rem;
+  transform: skewX(-15deg);
+  opacity: 0.85;
+  & > * {
+    transform: skewX(15deg);
+  }
+  //   clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 10%);
+  &__text {
+    font-size: $default-font-size;
+  }
+  &__shape {
+    height: 12rem;
+    width: 12rem;
+    float: left;
+    -webkit-clip-path: circle(50%);
+    clip-path: circle(50%);
+    -webkit-shape-outside: circle(50%);
+    shape-outside: circle(50%);
+    transform: translateX(-1rem) skewX(15deg);
+    position: relative;
+    &--img {
+      //   width: 100%;
+      height: 100%;
+      transform: translate(-2rem) scale(1.75);
+      transition: all 0.2s;
+      backface-visibility: hidden;
+    }
+  }
+  &__caption {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.2s;
+    backface-visibility: hidden;
+  }
+
+  //on hover on "story", we want to change the caption
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  &:hover &__shape--img {
+    transform: translate(-3rem) scale(1);
+    filter: blur(3px);
+  }
+}

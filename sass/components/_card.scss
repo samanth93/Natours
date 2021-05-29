@@ -1,0 +1,149 @@
+// Functionality
+.card {
+  height: 45rem;
+  position: relative;
+  perspective: 1500rem;
+  &__side {
+    transition: all 0.5s ease;
+    backface-visibility: hidden;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+    &--front {
+      height: 100%;
+      background-color: white;
+    }
+    &--back {
+      height: 100%;
+      transform: rotateY(-180deg);
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        );
+      }
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        );
+      }
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-teritiary-light,
+          $color-teritiary-dark
+        );
+      }
+    }
+  }
+
+  // This means when parent is hovered i.e 'card' flip 'card__side--front', this works because the second one is
+  // child of first one
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+  }
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+  }
+  //   Front side styling
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-dark
+        ),
+        url(../img/nat-5.jpg);
+    }
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-primary-light,
+          $color-primary-dark
+        ),
+        url(../img/nat-6.jpg);
+    }
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          $color-teritiary-light,
+          $color-teritiary-dark
+        ),
+        url(../img/nat-7.jpg);
+    }
+  }
+  &__heading {
+    color: white;
+    text-transform: uppercase;
+    position: absolute;
+    top: 30%;
+    right: 0;
+    font-size: 2rem;
+    &--1 {
+      background-image: linear-gradient(
+        to right bottom,
+        $color-secondary-light,
+        $color-secondary-dark
+      );
+    }
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        $color-primary-light,
+        $color-primary-dark
+      );
+    }
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        $color-teritiary-light,
+        $color-teritiary-dark
+      );
+    }
+  }
+  &__details {
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+      li {
+        font-size: 1.75rem;
+        padding: 0.5rem;
+        text-align: center;
+        &:not(:last-child) {
+          border-bottom: 1px solid beige;
+        }
+      }
+    }
+  }
+  &__cta {
+    text-align: center;
+    color: $color-white;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+  }
+  &__price-only {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  &__price-value {
+    font-size: 5rem;
+    font-weight: 100;
+  }
+}

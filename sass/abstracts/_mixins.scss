@@ -5,3 +5,34 @@
     display: table;
   }
 }
+// Order to follow while starting to code media queries
+// Base + typography > general layout + grid > page layout > components
+
+// 1em =16px
+// 600px(37.5 * 16, for media queries it takes default font size 16 px, not that we fixed which is 10px)
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      //600px
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      // 900px
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      // 1200px
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      // 1800px
+      @content;
+    }
+  }
+}
